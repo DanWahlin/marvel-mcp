@@ -113,11 +113,13 @@ Add the following to your `claude_desktop_config.json`:
       "type": "stdio",
       "command": "node",
       "args": [
-        "/PATH/TO/marvel-mcp-server/dist/index.js"
+        "-y",
+        "@codewithdan/marvel-mcp"
+        // "/PATH/TO/marvel-mcp-server/dist/index.js"
       ],
       "env": {
-        "MARVEL_PUBLIC_KEY": "",
-        "MARVEL_PRIVATE_KEY": "",
+        "MARVEL_PUBLIC_KEY": "YOUR_PUBLIC_KEY",
+        "MARVEL_PRIVATE_KEY": "YOUR_PRIVATE_KEY",
         "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
       }
     }
@@ -138,11 +140,13 @@ If you want to associate the MCP server with a specific repo, create a `.vscode/
         "marvel-mcp": {
             "command": "node",
             "args": [
-                "/PATH/TO/marvel-mcp-server/dist/index.js"
+                "-y",
+                "@codewithdan/marvel-mcp"
+                // "/PATH/TO/marvel-mcp-server/dist/index.js"
             ],
             "env": {
-                "MARVEL_PUBLIC_KEY": "",
-                "MARVEL_PRIVATE_KEY": "",
+                "MARVEL_PUBLIC_KEY": "YOUR_PUBLIC_KEY",
+                "MARVEL_PRIVATE_KEY": "YOUR_PRIVATE_KEY",
                 "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
             }
         }
@@ -158,11 +162,13 @@ If you want to associate the MCP server with all repos, add the following to you
         "marvel-mcp": {
             "command": "node",
             "args": [
-                "/PATH/TO/marvel-mcp-server/dist/index.js"
+                "-y",
+                "@codewithdan/marvel-mcp"
+                // "/PATH/TO/marvel-mcp-server/dist/index.js"
             ],
             "env": {
-                "MARVEL_PUBLIC_KEY": "",
-                "MARVEL_PRIVATE_KEY": "",
+                "MARVEL_PUBLIC_KEY": "YOUR_PUBLIC_KEY",
+                "MARVEL_PRIVATE_KEY": "YOUR_PRIVATE_KEY",
                 "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
             }
         },
@@ -179,8 +185,7 @@ If you want to associate the MCP server with all repos, add the following to you
 4. Put a question in the chat that would naturally invoke one of the tools, for example: 
 
     ```
-    Get a list of Marvel characters and output as a bulleted list.
-
+    List 10 marvel characters.
     What comics is Wolverine in?
     
     Which characters appear in the Avengers comics?
