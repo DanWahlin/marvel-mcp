@@ -1,12 +1,15 @@
 {
   "name": "@codewithdan/marvel-mcp",
   "version": "1.2.0",
+  "description": "Marvel APIs MCP Server demo",
+  "license": "MIT",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "description": "Marvel APIs MCP Server demo",
-  "license": "MIT",
+  "bin": {
+    "marvel-mcp": "./dist/index.js"
+  },
   "author": {
     "name": "Dan Wahlin",
     "url": "https://github.com/danwahlin"
@@ -59,5 +62,8 @@
     "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }
