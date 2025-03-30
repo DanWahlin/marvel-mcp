@@ -11,7 +11,7 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/), enabli
 
 ## 🧰 Tools
 
-### 1. `get_characters`
+### 1. `get_characters` 🔍🦸‍♂️
 - Description: Fetch Marvel characters with optional filters
 - Inputs:
   - `name` (optional string): Full character name
@@ -21,13 +21,30 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/), enabli
   - `orderBy` (optional string): Fields like `name`, `-modified`
   - `limit` (optional number): Max results (1–100)
   - `offset` (optional number): Pagination offset
-- Returns: JSON response with matching characters
+- Returns: JSON response with matching characters. See `CharacterDataWrapperSchema` in `src/schemas.ts` for details.
 
-### 2. `get_character_by_id`
+### 2. `get_character_by_id` 🆔🧑‍🎤
 - Description: Fetch a character by ID
 - Input:
   - `characterId` (number): The unique ID of the character
-- Returns: Character details
+- Returns: Character details. See `CharacterDataWrapperSchema` in `src/schemas.ts` for details.
+
+### 3. `get_comics_for_character` 📚🎭
+- Description: Fetch comics filtered by character ID and optional filters
+- Inputs:
+  - `characterId` (number): The unique ID of the character
+  - Optional filters:
+    - `format`, `formatType` (string): Comic format (e.g., `comic`, `hardcover`)
+    - `noVariants`, `hasDigitalIssue` (boolean): Flags to exclude variants or include only digital issues
+    - `dateDescriptor` (string): Predefined ranges like `thisWeek`, `nextWeek`
+    - `dateRange` (string): Custom date range (e.g., `2023-01-01,2023-12-31`)
+    - `title`, `titleStartsWith` (string): Filter by title or title prefix
+    - `startYear`, `issueNumber`, `digitalId` (number): Numeric filters
+    - `diamondCode`, `upc`, `isbn`, `ean`, `issn` (string): Identifier filters
+    - `creators`, `series`, `events`, `stories`, `sharedAppearances`, `collaborators` (string): Comma-separated IDs
+    - `orderBy` (string): Fields like `title`, `-modified`
+    - `limit`, `offset` (number): Pagination options
+- Returns: JSON response with comics containing the character. See `ComicDataWrapperSchema` in `src/schemas.ts` for details (it simply points to `CharacterDataWrapperSchema`).
 
 ## 🛠️ Setup
 
