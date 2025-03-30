@@ -31,11 +31,23 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/), enabli
 
 ## 🛠️ Setup
 
-1. Sign up for a [Marvel Developer API](https://developer.marvel.com/) account and your public and private API keys.
+1. Sign up for a [Marvel Developer API](https://developer.marvel.com/account) account and get your public and private API keys.
 
-2. Rename `.env.template ` to `.env`.
+1. Clone this repository:
 
-3. Add your Marvel API keys to your `.env` file.
+    ```bash
+    git clone https://github.com/DanWahlin/marvel-mcp-server
+    ```
+
+1. Rename `.env.template ` to `.env`.
+
+1. Add your Marvel API public and private keys to the `.env` file.
+
+    ```bash
+    MARVEL_PUBLIC_KEY=YOUR_PUBLIC_KEY
+    MARVEL_PRIVATE_KEY=YOUR_PRIVATE_KEY
+    MARVEL_API_BASE=https://gateway.marvel.com/v1/public
+    ```
 
 ### 📦 Install
 
