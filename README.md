@@ -2,7 +2,7 @@
 
 <img src="./images/captain-america.jpg" alt="" align="center" height="96" />
 
-# Marvel MCP Server
+# Marvel MCP
 
 [![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/danwahlin/marvel-mcp?hide_repo_select=true&ref=main&quickstart=true)
 ![Node version](https://img.shields.io/badge/Node.js->=20-3c873a?style=flat-square)
