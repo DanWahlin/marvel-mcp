@@ -2,14 +2,38 @@
   "name": "marvel-mcp-server",
   "version": "1.0.0",
   "description": "Marvel APIs MCP Server demo",
-  "license": "ISC",
-  "author": "Dan Wahlin",
+  "license": "MIT",
+  "author": {
+    "name": "Dan Wahlin",
+    "url": "https://github.com/danwahlin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danwahlin/marvel-mcp-server"
+  },
+  "homepage": "https://github.com/danwahlin/marvel-mcp-server",
+  "bugs": {
+    "url": "https://github.com/danwahlin/marvel-mcp-server/issues"
+  },
   "type": "module",
   "main": "index.js",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "genai",
+    "api",
+    "marvel",
+    "comics"
+  ],  
   "scripts": {
     "start": "tsx ./src/index.ts",
     "build": "npx tsc",
-    "dev": "tsc && concurrently \"tsc --watch\" \"nodemon dist/index.js\""
+    "dev": "tsc && concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
+    "release:check": "semantic-release --dry-run"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",
@@ -22,6 +46,8 @@
     "@types/node": "^22.13.14",
     "concurrently": "^9.1.2",
     "nodemon": "^3.1.9",
+    "semantic-release": "^24.2.3",
+    "semantic-release-npm-github": "^5.0.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"

@@ -1,13 +1,30 @@
+<div align="center">
+
+<img src="./images/captain-america.jpg" alt="" align="center" height="96" />
+
 # Marvel MCP Server
 
-MCP Server for the [Marvel Developer API](https://developer.marvel.com/), enabling interaction with characters and comics data.
+[![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/danwahlin/marvel-mcp?hide_repo_select=true&ref=main&quickstart=true)
+![Node version](https://img.shields.io/badge/Node.js->=20-3c873a?style=flat-square)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+
+⭐ If you like this project, star it on GitHub!
+
+[Features](#features) • [Tools](#tools) • [Setup](#setup) • [Configuring an MCP Host](#configuring-an-mcp-host)
+
+</div>
+
+MCP Server for the [Marvel Developer API](https://developer.marvel.com/documentation/getting_started), enabling interaction with characters and comics data.
+
+> **Note**: All data from this MCP server is fetched from the [official Marvel API](https://developer.marvel.com/documentation/getting_started) and owned by Marvel. This project is not affiliated with Marvel in any way.
 
 ## 🔧 Features
 
 - **List Marvel Characters**: Supports filters like `nameStartsWith`, `limit`, `comics`, `series`, etc.
-- **Fetch a Marvel Character by ID**: Get detailed info on any character using their `characterId`
-- **Tool-based MCP integration**: Register this server with Model Context Protocol (MCP) tools (VS Code, Claude, etc.)
-- **Environment Configuration**: Use `.env` file to manage environment variables like `MARVEL_API_KEY` and `MARVEL_API_BASE`
+- **Fetch a Marvel Character by ID**: Get detailed info on any character using their `characterId`.
+- **Fetch Comics for a Character**: Get a list of comics featuring a specific character, with various filters like `format`, `dateRange`, etc.
+- **Tool-based MCP integration**: Register this server with Model Context Protocol (MCP) tools (VS Code, Claude, etc.).
+- **Environment Configuration**: Use `.env` file to manage environment variables like `MARVEL_PUBLIC_KEY`, `MARVEL_PRIVATE_KEY` and `MARVEL_API_BASE`.
 
 ## 🧰 Tools
 
@@ -48,7 +65,7 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/), enabli
 
 ## 🛠️ Setup
 
-1. Sign up for a [Marvel Developer API](https://developer.marvel.com/account) account and get your public and private API keys.
+1. Sign up for a [Marvel Developer API](https://developer.marvel.com/documentation/getting_started) account and get your public and private API keys.
 
 1. Clone this repository:
 
@@ -65,34 +82,50 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/), enabli
     MARVEL_PRIVATE_KEY=YOUR_PRIVATE_KEY
     MARVEL_API_BASE=https://gateway.marvel.com/v1/public
     ```
+1. Install the required dependencies and build the project.
 
-### 📦 Install
+    ```bash
+    npm install
+    npm run build
+    ```
 
-```bash
-npm install
-npm run build
+1. (Optional) To try out the server using MCP Inspector run the following command:
+
+    ```bash
+    # Start the MCP Inspector
+    npx @modelcontextprotocol/inspector node build/index.js
+    ```
+
+    Visit the MCP Inspector URL shown in the console in your browser. Change `Arguments` to `dist/index.js` and select `Connect`. Select `List Tools` to see the available tools.
+
+## Configuring an MCP Host
+
+### Use with Claude Desktop
+
+Add the following to your claude_desktop_config.json:
+
+```json
+{
+  "mcpServers": {
+    "marvel-mcp": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/PATH/TO/marvel-mcp-server/dist/index.js"
+      ],
+      "env": {
+        "MARVEL_PUBLIC_KEY": "",
+        "MARVEL_PRIVATE_KEY": "",
+        "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
+      }
+    }
+  }
+}
 ```
 
-### Using MCP Inspector to Test the MCP Server
+### Use with GitHub Copilot
 
-```bash
-# Start the MCP Inspector
-npx @modelcontextprotocol/inspector node build/index.js
-```
-
-Visit the MCP Inspector URL shown in the console in your browser. Change `Arguments` to `dist/index.js` and select `Connect`. Select `List Tools` to see the available tools.
-
-### Running the MCP Server Locally for use in Claude Desktop or VS Code (Insiders)
-
-```bash
-npm run dev
-```
-
-### If you already installed in Claude Desktop
-
-Enable `chat.mcp.discovery.enabled: true` in your VS Code settings and it will discover existing MCP server lists, and proceed to [use the tool in GitHub Copilot Agent mode](#using-tools-in-github-copilot).
-
-### If you did not install in Claude Desktop
+> **Note**: If you already have the MCP server enabled with Claude Desktop, add `chat.mcp.discovery.enabled: true` in your VS Code settings and it will discover existing MCP server lists.
 
 If you want to associate the MCP server with a specific repo, create a `.vscode/mcp.json` file with this content:
 
@@ -100,7 +133,7 @@ If you want to associate the MCP server with a specific repo, create a `.vscode/
    {
      "inputs": [],
      "servers": {
-        "marvel-api": {
+        "marvel-mcp": {
             "command": "node",
             "args": [
                 "/PATH/TO/marvel-mcp-server/dist/index.js"
@@ -115,12 +148,12 @@ If you want to associate the MCP server with a specific repo, create a `.vscode/
    }
    ```
 
-If you want to associate the MCP server with all repos, add to your VS Code User Settings JSON:
+If you want to associate the MCP server with all repos, add the following to your VS Code User Settings JSON:
 
    ```json
   "mcp": {
     "servers": {
-        "marvel-api": {
+        "marvel-mcp": {
             "command": "node",
             "args": [
                 "/PATH/TO/marvel-mcp-server/dist/index.js"
@@ -136,7 +169,7 @@ If you want to associate the MCP server with all repos, add to your VS Code User
   "chat.mcp.discovery.enabled": true,
    ```
 
-## Using Tools in GitHub Copilot
+### Using Tools in GitHub Copilot
 
 1. Now that the mcp server is discoverable, open GitHub Copilot and select the `Agent` mode (not `Chat` or `Edits`).
 2. Select the "refresh" button in the Copilot chat text field to refresh the server list.
