@@ -31,6 +31,12 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/), enabli
 
 ## 🛠️ Setup
 
+1. Sign up for a [Marvel Developer API](https://developer.marvel.com/) account and your public and private API keys.
+
+2. Rename `.env.template ` to `.env`.
+
+3. Add your Marvel API keys to your `.env` file.
+
 ### 📦 Install
 
 ```bash
@@ -38,21 +44,24 @@ npm install
 npm run build
 ```
 
-### Using MCP Inspector
+### Using MCP Inspector to Test the MCP Server
 
 ```bash
-# Start the MCP server
-npm run dev
-
 # Start the MCP Inspector
 npx @modelcontextprotocol/inspector node build/index.js
 ```
 
-Visit the MCP Inspector URL shown in the console. Change `Arguments` to `dist/index.js` and select `Connect`. Select `List Tools` to see the available tools.
+Visit the MCP Inspector URL shown in the console in your browser. Change `Arguments` to `dist/index.js` and select `Connect`. Select `List Tools` to see the available tools.
+
+### Running the MCP Server Locally for use in Claude Desktop or VS Code (Insiders)
+
+```bash
+npm run dev
+```
 
 ### If you already installed in Claude Desktop
 
-Enable `chat.mcp.discovery.enabled: true` in your settings and VS Code will discover existing MCP server lists, and proceed to [use the tool in GitHub Copilot Agent mode](#using-tools-in-copilot).
+Enable `chat.mcp.discovery.enabled: true` in your VS Code settings and it will discover existing MCP server lists, and proceed to [use the tool in GitHub Copilot Agent mode](#using-tools-in-github-copilot).
 
 ### If you did not install in Claude Desktop
 
@@ -98,7 +107,7 @@ If you want to associate the MCP server with all repos, add to your VS Code User
   "chat.mcp.discovery.enabled": true,
    ```
 
-## Using tools in Copilot
+## Using Tools in GitHub Copilot
 
 1. Now that the mcp server is discoverable, open GitHub Copilot and select the `Agent` mode (not `Chat` or `Edits`).
 2. Select the "refresh" button in the Copilot chat text field to refresh the server list.
