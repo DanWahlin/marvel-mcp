@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/danwahlin/marvel-mcp/compare/1.3.0...1.4.0) (2025-03-30)
+
+
+### Features
+
+* Update README with new command arguments and example keys ([4e9058b](https://github.com/danwahlin/marvel-mcp/commit/4e9058b1f3b6f23dd2674b14fd41f6ed1d58766e))
+
 # [1.3.0](https://github.com/danwahlin/marvel-mcp/compare/1.2.0...1.3.0) (2025-03-30)
 
 
