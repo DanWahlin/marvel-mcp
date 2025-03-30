@@ -1,6 +1,10 @@
 {
   "name": "@codewithdan/marvel-mcp",
   "version": "1.0.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "description": "Marvel APIs MCP Server demo",
   "license": "MIT",
   "author": {
@@ -28,7 +32,11 @@
     "api",
     "marvel",
     "comics"
-  ],  
+  ],
+  "release": {
+    "extends": "semantic-release-npm-github",
+    "branches": "main"
+  },
   "scripts": {
     "start": "tsx ./src/index.ts",
     "build": "npx tsc",
