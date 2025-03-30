@@ -16,7 +16,7 @@
 
 MCP Server for the [Marvel Developer API](https://developer.marvel.com/documentation/getting_started), enabling interaction with characters and comics data.
 
-> **Note**: All data from this MCP server is fetched from the [official Marvel API](https://developer.marvel.com/documentation/getting_started) and owned by Marvel. This project is not affiliated with Marvel in any way.
+> **Note**: All data used by this MCP server is fetched from the [official Marvel API](https://developer.marvel.com/documentation/getting_started) and owned by Marvel. This project is not affiliated with Marvel in any way.
 
 <a name="features"></a>
 ## 🔧 Features
@@ -106,7 +106,7 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/documenta
 
 ### Use with Claude Desktop
 
-Add the following to your claude_desktop_config.json:
+Add the following to your `claude_desktop_config.json`:
 
 ```json
 {
