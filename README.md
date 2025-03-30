@@ -18,6 +18,7 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/documenta
 
 > **Note**: All data from this MCP server is fetched from the [official Marvel API](https://developer.marvel.com/documentation/getting_started) and owned by Marvel. This project is not affiliated with Marvel in any way.
 
+<a name="features"></a>
 ## 🔧 Features
 
 - **List Marvel Characters**: Supports filters like `nameStartsWith`, `limit`, `comics`, `series`, etc.
@@ -26,6 +27,7 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/documenta
 - **Tool-based MCP integration**: Register this server with Model Context Protocol (MCP) tools (VS Code, Claude, etc.).
 - **Environment Configuration**: Use `.env` file to manage environment variables like `MARVEL_PUBLIC_KEY`, `MARVEL_PRIVATE_KEY` and `MARVEL_API_BASE`.
 
+<a name="tools"></a>
 ## 🧰 Tools
 
 ### 1. `get_characters` 🔍🦸‍♂️
@@ -63,6 +65,7 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/documenta
     - `limit`, `offset` (number): Pagination options
 - Returns: JSON response with comics containing the character. See `ComicDataWrapperSchema` in `src/schemas.ts` for details (it simply points to `CharacterDataWrapperSchema`).
 
+<a name="setup"></a>
 ## 🛠️ Setup
 
 1. Sign up for a [Marvel Developer API](https://developer.marvel.com/documentation/getting_started) account and get your public and private API keys.
@@ -98,6 +101,7 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/documenta
 
     Visit the MCP Inspector URL shown in the console in your browser. Change `Arguments` to `dist/index.js` and select `Connect`. Select `List Tools` to see the available tools.
 
+<a name="configuring-an-mcp-host"></a>
 ## Configuring an MCP Host
 
 ### Use with Claude Desktop
