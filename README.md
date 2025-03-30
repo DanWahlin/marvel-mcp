@@ -8,8 +8,6 @@
 ![Node version](https://img.shields.io/badge/Node.js->=20-3c873a?style=flat-square)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-⭐ If you like this project, star it on GitHub!
-
 [Features](#features) • [Tools](#tools) • [Setup](#setup) • [Configuring an MCP Host](#configuring-an-mcp-host)
 
 </div>
