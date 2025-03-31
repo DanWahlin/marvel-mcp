@@ -8,7 +8,7 @@ import { marvelTools, ToolName } from './tools.js';
 const server = new Server(
   {
     name: 'marvel-mcp',
-    version: '1.4.0',
+    version: '1.5.0',
     description: 'An MCP Server to retrieve Marvel character information.',
   },
   {
