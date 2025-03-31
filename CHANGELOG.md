@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/danwahlin/marvel-mcp/compare/1.4.0...1.5.0) (2025-03-31)
+
+
+### Features
+
+* Implement Marvel API tools for character and comic retrieval ([95bd85a](https://github.com/danwahlin/marvel-mcp/commit/95bd85a0c2a1fedae07be301ecae5188eec4a8ff))
+
 # [1.4.0](https://github.com/danwahlin/marvel-mcp/compare/1.3.0...1.4.0) (2025-03-30)
 
 
