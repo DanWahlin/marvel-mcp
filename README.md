@@ -107,7 +107,13 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/documenta
 <a name="setup"></a>
 ## 🛠️ Setup
 
-1. Sign up for a [Marvel Developer API](https://developer.marvel.com/documentation/getting_started) account and get your public and private API keys.
+Sign up for a [Marvel Developer API](https://developer.marvel.com/documentation/getting_started) account and get your public and private API keys. 
+
+If you want to run it directly in an MCP host, jump to the [Use with Claude Desktop](#use-with-claude-desktop) or [Use with GitHub Copilot](#use-with-github-copilot) sections.
+
+### Run the Server Locally with MCP Inspector
+
+If you'd like to run MCP Inspector locally to test the server, follow these steps:
 
 1. Clone this repository:
 
