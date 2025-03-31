@@ -3,13 +3,12 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { GetCharactersSchema, CharacterDataWrapperSchema, GetCharacterByIdSchema, GetComicsForCharacterSchema, ComicDataWrapperSchema } from './schemas.js';
-import { httpRequest, serializeQueryParams } from './utils.js';
+import { marvelTools, ToolName } from './tools.js';
 
 const server = new Server(
   {
-    name: 'marvel-api',
-    version: '0.1.0',
+    name: 'marvel-mcp',
+    version: '1.4.0',
     description: 'An MCP Server to retrieve Marvel character information.',
   },
   {
@@ -19,69 +18,60 @@ const server = new Server(
   }
 );
 
-// List tools
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
-    tools: [
-      {
-        name: 'get_characters',
-        description: 'Fetch Marvel characters with optional filters',
-        inputSchema: zodToJsonSchema(GetCharactersSchema),
-        outputSchema: zodToJsonSchema(CharacterDataWrapperSchema),
-      },
-      {
-        name: 'get_character_by_id',
-        description: 'Fetch a Marvel character by ID',
-        inputSchema: zodToJsonSchema(GetCharacterByIdSchema),
-        outputSchema: zodToJsonSchema(CharacterDataWrapperSchema),
-      },
-      {
-        name: 'get_comics_for_character',
-        description: 'Fetch comics filtered by character ID and optional filters',
-        inputSchema: zodToJsonSchema(GetComicsForCharacterSchema),
-        outputSchema: zodToJsonSchema(ComicDataWrapperSchema),
-      },
-    ],
+    tools: Object.entries(marvelTools).map(([name, tool]) => ({
+      name,
+      description: tool.description,
+      inputSchema: zodToJsonSchema(tool.schema),
+    })),
   };
 });
 
-// Call tool
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  console.log(`Processing tool request: ${request.params.name}`);
+
   if (!request.params.arguments) {
     throw new Error('Arguments are required');
   }
 
-  switch (request.params.name) {
-    case 'get_characters': {
-      const args = GetCharactersSchema.parse(request.params.arguments);
-      const result = await httpRequest('/characters', serializeQueryParams(args));
-      const parsed = CharacterDataWrapperSchema.parse(result);
+  const { name, arguments: args } = request.params;
+
+  if (!(name in marvelTools)) {
+    throw new Error(`Unknown tool: ${name}`);
+  }
+
+  const tool = marvelTools[name as ToolName];
+
+  if (!tool) {
+    throw new Error(`Tool not found: ${name}`);
+  }
+  
+  try {
+    const result = await tool.handler(args);
+    
+    console.log(`Completed tool request: ${name}`);
+
+    // Special handling for HTML content from generate_comics_html tool
+    if (name === 'generate_comics_html' && 'html' in result) {
       return {
-        content: [{ type: 'text', text: JSON.stringify(parsed, null, 2) }],
+        content: [
+          { 
+            type: 'text', 
+            text: result.html 
+          }
+        ],
       };
     }
 
-    case 'get_character_by_id': {
-      const args = GetCharacterByIdSchema.parse(request.params.arguments);
-      const result = await httpRequest(`/characters/${args.characterId}`);
-      const parsed = CharacterDataWrapperSchema.parse(result);
-      return {
-        content: [{ type: 'text', text: JSON.stringify(parsed, null, 2) }],
-      };
+    return {
+      content: [{ type: 'text', text: JSON.stringify(result) }],
+    };
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Error processing ${name}: ${error.message}`);
     }
-
-    case 'get_comics_for_character': {
-      const args = GetComicsForCharacterSchema.parse(request.params.arguments);
-      const { characterId, ...query } = args;
-      const result = await httpRequest(`/characters/${characterId}/comics`, serializeQueryParams(query));
-      const parsed = ComicDataWrapperSchema.parse(result);
-      return {
-        content: [{ type: 'text', text: JSON.stringify(parsed, null, 2) }],
-      };
-    }
-
-    default:
-      throw new Error(`Unknown tool: ${request.params.name}`);
+    throw error;
   }
 });
 
