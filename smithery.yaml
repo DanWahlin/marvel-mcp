@@ -1,0 +1,38 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - marvelPublicKey
+      - marvelPrivateKey
+    properties:
+      marvelPublicKey:
+        type: string
+        description: Your Marvel API public key.
+      marvelPrivateKey:
+        type: string
+        description: Your Marvel API private key.
+      marvelApiBase:
+        type: string
+        default: https://gateway.marvel.com/v1/public
+        description: The base URL for the Marvel API. Defaults to
+          'https://gateway.marvel.com/v1/public'.
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['dist/index.js'],
+      env: {
+        MARVEL_PUBLIC_KEY: config.marvelPublicKey,
+        MARVEL_PRIVATE_KEY: config.marvelPrivateKey,
+        MARVEL_API_BASE: config.marvelApiBase
+      }
+    })
+  exampleConfig:
+    marvelPublicKey: YOUR_PUBLIC_KEY_HERE
+    marvelPrivateKey: YOUR_PRIVATE_KEY_HERE
+    marvelApiBase: https://gateway.marvel.com/v1/public
