@@ -112,14 +112,6 @@ Sign up for a [Marvel Developer API](https://developer.marvel.com/documentation/
 
 If you want to run it directly in an MCP host, jump to the [Use with Claude Desktop](#use-with-claude-desktop) or [Use with GitHub Copilot](#use-with-github-copilot) sections.
 
-### Installing via Smithery
-
-To install Marvel MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@DanWahlin/marvel-mcp):
-
-```bash
-npx -y @smithery/cli install @DanWahlin/marvel-mcp --client claude
-```
-
 ### Run the Server Locally with MCP Inspector
 
 If you'd like to run MCP Inspector locally to test the server, follow these steps:
@@ -182,6 +174,14 @@ Add the following to your `claude_desktop_config.json`:
     }
   }
 }
+```
+
+#### Installing via Smithery
+
+To install Marvel MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@DanWahlin/marvel-mcp):
+
+```bash
+npx -y @smithery/cli install @DanWahlin/marvel-mcp --client claude
 ```
 
 ### Use with GitHub Copilot (VS Code Insiders)
