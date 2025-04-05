@@ -253,4 +253,4 @@ If you want to associate the MCP server with all repos, add the following to you
     What characters are in the Hedge Knight II: Sworn Sword (2007) comic?
     ```
 
-    > **Note**: If you see "Sorry, the response was filtered by the Responsible AI Service. Please rephrase your prompt and try again.", try running it again or rephrasing the prompt.
+    > **Note**: If you see "Sorry, the response was filtered by the Responsible AI Service.", try running it again or rephrasing the prompt.
