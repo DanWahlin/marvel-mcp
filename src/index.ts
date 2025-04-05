@@ -4,6 +4,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { marvelTools, ToolName } from './tools.js';
+import { instructions } from './instructions.js';
 
 const server = new Server(
   {
@@ -15,6 +16,7 @@ const server = new Server(
     capabilities: {
       tools: {},
     },
+    instructions
   }
 );
 
@@ -46,19 +48,19 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (!tool) {
     throw new Error(`Tool not found: ${name}`);
   }
-  
+
   try {
     const result = await tool.handler(args);
-    
+
     console.log(`Completed tool request: ${name}`);
 
     // Special handling for HTML content from generate_comics_html tool
     if (name === 'generate_comics_html' && 'html' in result) {
       return {
         content: [
-          { 
-            type: 'text', 
-            text: result.html 
+          {
+            type: 'text',
+            text: result.html
           }
         ],
       };
