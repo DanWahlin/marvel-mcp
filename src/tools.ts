@@ -67,32 +67,32 @@ export const marvelTools = {
             return CharacterDataWrapperSchema.parse(res);
         }
     },
-    generate_comics_html: {
-        description: 'Create an HTML page displaying Marvel comics with their images',
-        schema: GenerateComicsHtmlSchema,
-        handler: async (args: any) => {
-            const argsParsed = GenerateComicsHtmlSchema.parse(args);
-            const pageTitle = argsParsed.title || 'Marvel Comics';
+    // generate_comics_html: {
+    //     description: 'Create an HTML page displaying Marvel comics with their images',
+    //     schema: GenerateComicsHtmlSchema,
+    //     handler: async (args: any) => {
+    //         const argsParsed = GenerateComicsHtmlSchema.parse(args);
+    //         const pageTitle = argsParsed.title || 'Marvel Comics';
             
-            // Remove title from query parameters
-            const { title, ...queryParams } = argsParsed;
+    //         // Remove title from query parameters
+    //         const { title, ...queryParams } = argsParsed;
             
-            // Fetch comics data from Marvel API
-            const res = await httpRequest(`/comics`, serializeQueryParams(queryParams));
-            const comicsData = ComicDataWrapperSchema.parse(res);
+    //         // Fetch comics data from Marvel API
+    //         const res = await httpRequest(`/comics`, serializeQueryParams(queryParams));
+    //         const comicsData = ComicDataWrapperSchema.parse(res);
             
-            // Generate HTML
-            const html = generateComicsHtml(comicsData.data.results, pageTitle);
+    //         // Generate HTML
+    //         const html = generateComicsHtml(comicsData.data.results, pageTitle);
             
-            // Return both the HTML and metadata about the result
-            return HtmlResponseSchema.parse({
-                html,
-                count: comicsData.data.count,
-                total: comicsData.data.total,
-                message: `Generated HTML view for ${comicsData.data.count} comics (out of ${comicsData.data.total} total matches)`
-            });
-        }
-    }
+    //         // Return both the HTML and metadata about the result
+    //         return HtmlResponseSchema.parse({
+    //             html,
+    //             count: comicsData.data.count,
+    //             total: comicsData.data.total,
+    //             message: `Generated HTML view for ${comicsData.data.count} comics (out of ${comicsData.data.total} total matches)`
+    //         });
+    //     }
+    // }
 };
 
 export type ToolName = keyof typeof marvelTools;
