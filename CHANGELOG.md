@@ -1,3 +1,16 @@
+# [1.6.0](https://github.com/danwahlin/marvel-mcp/compare/1.5.0...1.6.0) (2025-04-06)
+
+
+### Bug Fixes
+
+* update instructions for rendering image URLs and markdown formatting ([7fe6e09](https://github.com/danwahlin/marvel-mcp/commit/7fe6e09832ba463f42f7b1db1de702ad737fbf49))
+* update readme and remove comment ([6a51024](https://github.com/danwahlin/marvel-mcp/commit/6a51024c52adb68b6da65f70d62fcf8caa8cfef9))
+
+
+### Features
+
+* add instructions for Marvel MCP server assistant ([0440586](https://github.com/danwahlin/marvel-mcp/commit/04405862a8ab9259a1586bf0aa11ba9761206e7c))
+
 # [1.5.0](https://github.com/danwahlin/marvel-mcp/compare/1.4.0...1.5.0) (2025-03-31)
 
 
