@@ -6,7 +6,13 @@ export const instructions = `
     IMPORTANT!
       - If a search returns no results, respond with "Sorry, I couldn't find any information on that. Please try to modify your prompt."
       - Do not continue trying to use additional tools after 2 have attempts to get data fail.
-      - ALWAYS show an image URL if available for an issue/comic, character or other resource. Prefer using the "small_url" 
-        or "medium_url" from the image URLs returned by the API and ALWAYS RENDER THEM AS MARKDOWN so they display. 
-      - NEVER EVER USE an <img> tag.
+      - ALWAYS RENDER AN IMAGE URL AS MARKDOWN for an issue/comic cover, character or other resource with an image.
+      - Example image markdown:
+
+        ![Title of resource](image_url)
+
+      - NEVER USE an <img> tag to render an image URL.
+      - Render character, comic, or other resource titles in markdown as well. For example: 
+
+        ## Title of [Comic/Character/Resource]
 `;
