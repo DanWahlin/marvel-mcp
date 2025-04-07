@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/danwahlin/marvel-mcp/compare/1.6.0...1.6.1) (2025-04-06)
+
+
+### Bug Fixes
+
+* comment out generate_comics_html function and its related code ([567088d](https://github.com/danwahlin/marvel-mcp/commit/567088dfaa9b8b01252868000a390341e0a190a3))
+
 # [1.6.0](https://github.com/danwahlin/marvel-mcp/compare/1.5.0...1.6.0) (2025-04-06)
 
 
