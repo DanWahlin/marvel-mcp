@@ -244,7 +244,7 @@ If you want to associate the MCP server with all repos, add the following to you
 4. Put a question in the chat that would naturally invoke one of the tools, for example: 
 
     ```
-    List 10 marvel characters.
+    List 10 marvel characters. Include images.
 
     What comics is Wolverine in?
     
