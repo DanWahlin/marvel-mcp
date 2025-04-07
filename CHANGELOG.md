@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/danwahlin/marvel-mcp/compare/1.6.1...1.6.2) (2025-04-07)
+
+
+### Bug Fixes
+
+* update README to specify inclusion of images in character list request ([5fa668f](https://github.com/danwahlin/marvel-mcp/commit/5fa668f518df288f3fc56d8ad3419be438674bc3))
+
 ## [1.6.1](https://github.com/danwahlin/marvel-mcp/compare/1.6.0...1.6.1) (2025-04-06)
 
 
