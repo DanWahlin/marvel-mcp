@@ -3,13 +3,13 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { marvelTools, ToolName } from './tools.js';
+import { marvelTools, ToolName } from './tools/tools.js';
 import { instructions } from './instructions.js';
 
 const server = new Server(
   {
     name: 'marvel-mcp',
-    version: '1.5.0',
+    version: '1.6.2',
     description: 'An MCP Server to retrieve Marvel character information.',
   },
   {

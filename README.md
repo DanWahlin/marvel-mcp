@@ -244,13 +244,17 @@ If you want to associate the MCP server with all repos, add the following to you
 4. Put a question in the chat that would naturally invoke one of the tools, for example: 
 
     ```
-    List 10 marvel characters. Include images.
+    List 10 marvel characters.
 
     What comics is Wolverine in?
+
+    Give me details about villains in the Marvel universe.
     
     Which characters appear in the Avengers comics?
 
     What characters are in the Hedge Knight II: Sworn Sword (2007) comic?
+
+    List 10 characters from Ant-Man comics
     ```
 
     > **Note**: If you see "Sorry, the response was filtered by the Responsible AI Service.", try running it again or rephrasing the prompt.

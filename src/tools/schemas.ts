@@ -1,4 +1,3 @@
-// schemas.ts
 import { z } from 'zod';
 
 // Shared schema components
@@ -73,101 +72,6 @@ export const CharacterDataWrapperSchema = z.object({
   data: CharacterDataContainerSchema,
   etag: z.string(),
 });
-
-// Input schemas
-export const GetCharactersSchema = z.object({
-  name: z.string().optional(),
-  nameStartsWith: z.string().optional(),
-  modifiedSince: z.string().optional(),
-  comics: z.string().optional(),
-  series: z.string().optional(),
-  events: z.string().optional(),
-  stories: z.string().optional(),
-  orderBy: z.string().optional(),
-  limit: z.number().min(1).max(100).optional(),
-  offset: z.number().optional(),
-});
-
-export const GetCharacterByIdSchema = z.object({
-  characterId: z.number(),
-});
-
-export const GetComicsForCharacterSchema = GetCharacterByIdSchema.extend({
-  format: z.string().optional(),
-  formatType: z.string().optional(),
-  noVariants: z.boolean().optional(),
-  dateDescriptor: z.string().optional(),
-  dateRange: z.string().optional(),
-  title: z.string().optional(),
-  titleStartsWith: z.string().optional(),
-  startYear: z.number().optional(),
-  issueNumber: z.number().optional(),
-  diamondCode: z.string().optional(),
-  digitalId: z.number().optional(),
-  upc: z.string().optional(),
-  isbn: z.string().optional(),
-  ean: z.string().optional(),
-  issn: z.string().optional(),
-  hasDigitalIssue: z.boolean().optional(),
-  modifiedSince: z.string().optional(),
-  creators: z.string().optional(),
-  series: z.string().optional(),
-  events: z.string().optional(),
-  stories: z.string().optional(),
-  sharedAppearances: z.string().optional(),
-  collaborators: z.string().optional(),
-  orderBy: z.string().optional(),
-  limit: z.number().min(1).max(100).optional(),
-  offset: z.number().optional(),
-});
-
-// Comics
-export const GetComicsSchema = z.object({
-  format: z.string().optional(),
-  formatType: z.string().optional(),
-  noVariants: z.boolean().optional(),
-  dateDescriptor: z.string().optional(),
-  dateRange: z.string().optional(),
-  title: z.string().optional(),
-  titleStartsWith: z.string().optional(),
-  startYear: z.number().optional(),
-  issueNumber: z.number().optional(),
-  diamondCode: z.string().optional(),
-  digitalId: z.number().optional(),
-  upc: z.string().optional(),
-  isbn: z.string().optional(),
-  ean: z.string().optional(),
-  issn: z.string().optional(),
-  hasDigitalIssue: z.boolean().optional(),
-  modifiedSince: z.string().optional(),
-  creators: z.string().optional(),
-  characters: z.string().optional(),
-  series: z.string().optional(),
-  events: z.string().optional(),
-  stories: z.string().optional(),
-  sharedAppearances: z.string().optional(),
-  collaborators: z.string().optional(),
-  orderBy: z.string().optional(),
-  limit: z.number().min(1).max(100).optional(),
-  offset: z.number().optional(),
-});
-
-export const GetComicByIdSchema = z.object({
-  comicId: z.number(),
-});
-
-export const GetComicCharactersSchema = GetComicByIdSchema.extend({
-  name: z.string().optional(),
-  nameStartsWith: z.string().optional(),
-  modifiedSince: z.string().optional(),
-  series: z.string().optional(),
-  events: z.string().optional(),
-  stories: z.string().optional(),
-  orderBy: z.string().optional(),
-  limit: z.number().min(1).max(100).optional(),
-  offset: z.number().optional(),
-});
-
 
 // Schema for text objects associated with comics (e.g., descriptions)
 const TextObjectSchema = z.object({
@@ -273,7 +177,7 @@ const ComicDataContainerSchema = z.object({
 });
 
 // Schema for the entire response from the /v1/public/comics endpoint
-const ComicDataWrapperSchema = z.object({
+export const ComicDataWrapperSchema = z.object({
   code: z.number(),
   status: z.string(),
   copyright: z.string(),
@@ -283,45 +187,11 @@ const ComicDataWrapperSchema = z.object({
   etag: z.string(),
 });
 
-// Exporting the main schema for use in other modules
-export { ComicDataWrapperSchema };
-
+// Shared HTML response schema
 export const HtmlResponseSchema = z.object({
   html: z.string(),
   count: z.number(),
   total: z.number(),
   message: z.string()
-});
-
-// Make sure GenerateComicsHtmlSchema is exported from schemas.ts if you're defining it there
-export const GenerateComicsHtmlSchema = z.object({
-  title: z.string().optional().describe('Custom title for the HTML page'),
-  // Include all other parameters from GetComicsSchema
-  format: z.string().optional(),
-  formatType: z.string().optional(),
-  noVariants: z.boolean().optional(),
-  dateDescriptor: z.string().optional(),
-  dateRange: z.string().optional(),
-  titleStartsWith: z.string().optional(),
-  startYear: z.number().optional(),
-  issueNumber: z.number().optional(),
-  diamondCode: z.string().optional(),
-  digitalId: z.number().optional(),
-  upc: z.string().optional(),
-  isbn: z.string().optional(),
-  ean: z.string().optional(),
-  issn: z.string().optional(),
-  hasDigitalIssue: z.boolean().optional(),
-  modifiedSince: z.string().optional(),
-  creators: z.string().optional(),
-  characters: z.string().optional(),
-  series: z.string().optional(),
-  events: z.string().optional(),
-  stories: z.string().optional(),
-  sharedAppearances: z.string().optional(),
-  collaborators: z.string().optional(),
-  orderBy: z.string().optional(),
-  limit: z.number().optional().default(20).describe('Limit results (max 100)'),
-  offset: z.number().optional()
 });
 
