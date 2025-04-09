@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/danwahlin/marvel-mcp/compare/1.6.2...1.6.3) (2025-04-09)
+
+
+### Bug Fixes
+
+* correct formatting in README for tool invocation example ([0f1ddea](https://github.com/danwahlin/marvel-mcp/commit/0f1ddea798132d5cd1c8a99dab984c1f188162ab))
+
 ## [1.6.2](https://github.com/danwahlin/marvel-mcp/compare/1.6.1...1.6.2) (2025-04-07)
 
 
