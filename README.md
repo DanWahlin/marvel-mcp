@@ -119,7 +119,7 @@ If you'd like to run MCP Inspector locally to test the server, follow these step
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/DanWahlin/marvel-mcp-server
+    git clone https://github.com/DanWahlin/marvel-mcp
     ```
 
 1. Rename `.env.template ` to `.env`.
