@@ -232,16 +232,17 @@ If you want to associate the MCP server with all repos, add the following to you
             }
         },
     }
-  },
-  "chat.mcp.discovery.enabled": true,
+  }
    ```
+
+> **Note**: If you don't want to put keys directly in your JSON file, check out the [VS Code documentation to learn about using inputs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). Inputs let you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
 
 ### Using Tools in GitHub Copilot
 
 1. Now that the mcp server is discoverable, open GitHub Copilot and select the `Agent` mode (not `Chat` or `Edits`).
 2. Select the "refresh" button in the Copilot chat text field to refresh the server list.
 3. Select the "🛠️" button to see all the possible tools, including the ones from this repo.
-4. Put a question in the chat that would naturally invoke one of the tools, for example: 
+4. Put a question in the chat that would naturally invoke one of the tools, for example:
 
     ```
     List 10 marvel characters.
