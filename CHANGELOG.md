@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/danwahlin/marvel-mcp/compare/1.6.3...1.6.4) (2025-04-12)
+
+
+### Bug Fixes
+
+* improve README clarity and update tool request logging ([7d0bf0d](https://github.com/danwahlin/marvel-mcp/commit/7d0bf0d2dda0e4361cc39d50b1df697ddb2e3893))
+
 ## [1.6.3](https://github.com/danwahlin/marvel-mcp/compare/1.6.2...1.6.3) (2025-04-09)
 
 
