@@ -31,7 +31,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 });
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
-  console.log(`Processing tool request: ${request.params.name}`);
+  console.error(`Processing tool request: ${request.params.name}`);
 
   if (!request.params.arguments) {
     throw new Error('Arguments are required');
@@ -51,20 +51,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
   try {
     const result = await tool.handler(args);
-
-    console.log(`Completed tool request: ${name}`);
-
-    // Special handling for HTML content from generate_comics_html tool
-    if (name === 'generate_comics_html' && 'html' in result) {
-      return {
-        content: [
-          {
-            type: 'text',
-            text: result.html
-          }
-        ],
-      };
-    }
+    console.error(`Completed tool request: ${name}`);
 
     return {
       content: [{ type: 'text', text: JSON.stringify(result) }],

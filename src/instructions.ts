@@ -1,12 +1,10 @@
 export const markdownInstructions = `
+  - Display the raw image URL as a link and always include a link if available for characters and comics.
   - Always use https:// for the image URL even if the API returns http://
-  - NEVER USE an <img> tag to render an image URL. Display the raw URL as a link.
-  - Render character, issue, or other titles in markdown. For example: 
+  - NEVER USE an <img> tag to render an image URL. 
+  - Render character, comic, or other titles in markdown. For example: 
  
    ## Title of Comic
-   
-  - ALWAYS RENDER AN IMAGE URL AS MARKDOWN so they display in the chat.
-  - Ensure that all markdown is properly formatted for display in the chat.
 `;
 
 export const instructions = `

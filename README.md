@@ -255,7 +255,7 @@ If you want to associate the MCP server with all repos, add the following to you
 
     What characters are in the Hedge Knight II: Sworn Sword (2007) comic?
 
-    List 10 characters from Ant-Man comics
+    List 10 characters from Ant-Man comics.
     ```
 
     > **Note**: If you see "Sorry, the response was filtered by the Responsible AI Service.", try running it again or rephrasing the prompt.
