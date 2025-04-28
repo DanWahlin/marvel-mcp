@@ -190,39 +190,39 @@ npx -y @smithery/cli install @DanWahlin/marvel-mcp --client claude
 
 Add the following to your `settings.json` file (note that you can also add it to the `.vscode/mcp.json` file if you want it for a specific repo):
 
-   ```json
-   "mcp": {
-      "inputs": [
-          {
-              "type": "promptString",
-              "id": "marvel-public-api-key",
-              "description": "Marvel public API Key",
-              "password": true
-          },
-          {
-              "type": "promptString",
-              "id": "marvel-private-api-key",
-              "description": "Marvel private API Key",
-              "password": true
-          }
-      ],
-      "servers": {
-        "marvel-mcp": {
-            "command": "npx",
-            // "command": "node",
-            "args": [
-                "-y",
-                "@codewithdan/marvel-mcp"
-                // "/PATH/TO/marvel-mcp/dist/index.js"
-            ],
-            "env": {
-                "MARVEL_PUBLIC_KEY": "${input:marvel-public-api-key}",
-                "MARVEL_PRIVATE_KEY": "${input:marvel-private-api-key}",
-                "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
-            }
+  ```json
+  "mcp": {
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "marvel-public-api-key",
+            "description": "Marvel public API Key",
+            "password": true
+        },
+        {
+            "type": "promptString",
+            "id": "marvel-private-api-key",
+            "description": "Marvel private API Key",
+            "password": true
         }
+    ],
+    "servers": {
+      "marvel-mcp": {
+          "command": "npx",
+          // "command": "node",
+          "args": [
+              "-y",
+              "@codewithdan/marvel-mcp"
+              // "/PATH/TO/marvel-mcp/dist/index.js"
+          ],
+          "env": {
+              "MARVEL_PUBLIC_KEY": "${input:marvel-public-api-key}",
+              "MARVEL_PRIVATE_KEY": "${input:marvel-private-api-key}",
+              "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
+          }
       }
-   }
+    }
+  }
    ```
 
 ### Using Tools in GitHub Copilot
