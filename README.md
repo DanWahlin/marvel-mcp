@@ -184,16 +184,29 @@ To install Marvel MCP Server for Claude Desktop automatically via [Smithery](htt
 npx -y @smithery/cli install @DanWahlin/marvel-mcp --client claude
 ```
 
-### Use with GitHub Copilot (VS Code Insiders)
+### Use with GitHub Copilot
 
 > **Note**: If you already have the MCP server enabled with Claude Desktop, add `chat.mcp.discovery.enabled: true` in your VS Code settings and it will discover existing MCP server lists.
 
-If you want to associate the MCP server with a specific repo, create a `.vscode/mcp.json` file with this content:
+Add the following to your `settings.json` file (note that you can also add it to the `.vscode/mcp.json` file if you want it for a specific repo):
 
    ```json
-   {
-     "inputs": [],
-     "servers": {
+   "mcp": {
+      "inputs": [
+          {
+              "type": "promptString",
+              "id": "marvel-public-api-key",
+              "description": "Marvel public API Key",
+              "password": true
+          },
+          {
+              "type": "promptString",
+              "id": "marvel-private-api-key",
+              "description": "Marvel private API Key",
+              "password": true
+          }
+      ],
+      "servers": {
         "marvel-mcp": {
             "command": "npx",
             // "command": "node",
@@ -203,39 +216,14 @@ If you want to associate the MCP server with a specific repo, create a `.vscode/
                 // "/PATH/TO/marvel-mcp/dist/index.js"
             ],
             "env": {
-                "MARVEL_PUBLIC_KEY": "YOUR_PUBLIC_KEY",
-                "MARVEL_PRIVATE_KEY": "YOUR_PRIVATE_KEY",
+                "MARVEL_PUBLIC_KEY": "${input:marvel-public-api-key}",
+                "MARVEL_PRIVATE_KEY": "${input:marvel-private-api-key}",
                 "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
             }
         }
-     }
+      }
    }
    ```
-
-If you want to associate the MCP server with all repos, add the following to your VS Code User Settings JSON:
-
-   ```json
-  "mcp": {
-    "servers": {
-        "marvel-mcp": {
-            "command": "npx",
-            // "command": "node",
-            "args": [
-                "-y",
-                "@codewithdan/marvel-mcp"
-                // "/PATH/TO/marvel-mcp/dist/index.js"
-            ],
-            "env": {
-                "MARVEL_PUBLIC_KEY": "YOUR_PUBLIC_KEY",
-                "MARVEL_PRIVATE_KEY": "YOUR_PRIVATE_KEY",
-                "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
-            }
-        },
-    }
-  }
-   ```
-
-> **Note**: If you don't want to put keys directly in your JSON file, check out the [VS Code documentation to learn about using inputs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). Inputs let you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
 
 ### Using Tools in GitHub Copilot
 
