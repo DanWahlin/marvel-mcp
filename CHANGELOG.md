@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/danwahlin/marvel-mcp/compare/1.6.4...1.7.0) (2025-04-28)
+
+
+### Features
+
+* add HTTP server for Marvel MCP with Express and StreamableHTTPServer ([a5d51b0](https://github.com/danwahlin/marvel-mcp/commit/a5d51b0768adc5198812a44e9b9d87c4b864e5b4))
+
 ## [1.6.4](https://github.com/danwahlin/marvel-mcp/compare/1.6.3...1.6.4) (2025-04-12)
 
 
