@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/danwahlin-marvel-mcp-badge.png)](https://mseep.ai/app/danwahlin-marvel-mcp)
+
 <div align="center">
 
 <img src="./images/captain-america.jpg" alt="" align="center" height="96" />
