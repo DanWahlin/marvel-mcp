@@ -47,27 +47,27 @@
     "watch": "npx tsc --watch",
     "dev": "tsc && concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
     "dev:http": "npx tsc && concurrently \"npx tsc --watch\" \"nodemon dist/server.js\"",
-    "inspect": "npx @modelcontextprotocol/inspector node build/index.js",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/index.js",
     "release:check": "semantic-release --dry-run"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.10.2",
-    "dotenv": "^16.5.0",
+    "@modelcontextprotocol/sdk": "^1.16.0",
+    "dotenv": "^17.2.0",
     "express": "^5.1.0",
-    "pino": "^9.6.0",
+    "pino": "^9.7.0",
     "pino-pretty": "^13.0.0",
     "zod": "^3.24.3",
     "zod-to-json-schema": "^3.24.5"
   },
   "devDependencies": {
-    "@types/express": "^5.0.1",
-    "@types/node": "^22.15.2",
-    "concurrently": "^9.1.2",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.15",
+    "concurrently": "^9.2.0",
     "nodemon": "^3.1.10",
-    "semantic-release": "^24.2.3",
+    "semantic-release": "^24.2.7",
     "semantic-release-npm-github": "^5.0.0",
     "ts-node": "^10.9.2",
-    "tsx": "^4.19.3",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   },
   "files": [

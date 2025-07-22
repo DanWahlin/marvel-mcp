@@ -1,6 +1,10 @@
 import crypto from 'crypto';
 import { config } from 'dotenv';
+// Suppress any stdout output from dotenv
+const originalStdoutWrite = process.stdout.write;
+process.stdout.write = () => true;
 config();
+process.stdout.write = originalStdoutWrite;
 
 const MARVEL_PUBLIC_KEY = process.env.MARVEL_PUBLIC_KEY as string;
 const MARVEL_PRIVATE_KEY = process.env.MARVEL_PRIVATE_KEY as string;

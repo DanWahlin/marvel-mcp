@@ -142,7 +142,7 @@ If you'd like to run MCP Inspector locally to test the server, follow these step
 
     ```bash
     # Start the MCP Inspector
-    npx @modelcontextprotocol/inspector node build/index.js
+    npx @modelcontextprotocol/inspector node dist/index.js
     ```
 
     Visit the MCP Inspector URL shown in the console in your browser. Change `Arguments` to `dist/index.js` and select `Connect`. Select `List Tools` to see the available tools.
@@ -188,7 +188,7 @@ npx -y @smithery/cli install @DanWahlin/marvel-mcp --client claude
 
 > **Note**: If you already have the MCP server enabled with Claude Desktop, add `chat.mcp.discovery.enabled: true` in your VS Code settings and it will discover existing MCP server lists.
 
-Add the following to your `settings.json` file (note that you can also add it to the `.vscode/mcp.json` file if you want it for a specific repo):
+Add the following to your user settings file or add it to the `.vscode/mcp.json` file if you only want it available in this repo (you can use MCP: Add Server from the command palette and select Global or Workspace):
 
   ```json
   "mcp": {

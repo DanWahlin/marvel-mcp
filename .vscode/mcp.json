@@ -1,0 +1,33 @@
+{
+	"servers": {
+		"marvel-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			// "command": "node",
+			"args": [
+				"-y",
+				"@codewithdan/marvel-mcp"
+				// "/Users/danwahlin/Desktop/demos/marvel-mcp/dist/index.js"
+			],
+			"env": {
+              "MARVEL_PUBLIC_KEY": "${input:marvel-public-api-key}",
+              "MARVEL_PRIVATE_KEY": "${input:marvel-private-api-key}",
+              "MARVEL_API_BASE": "https://gateway.marvel.com/v1/public"
+          }
+		}
+	},
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "marvel-public-api-key",
+			"description": "Marvel public API Key",
+			"password": true
+		},
+		{
+			"type": "promptString",
+			"id": "marvel-private-api-key",
+			"description": "Marvel private API Key",
+			"password": true
+		}
+	]
+}

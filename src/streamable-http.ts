@@ -19,53 +19,6 @@ export class StreamableHTTPServer {
     constructor(mcpServer: Server, logger: Logger) {
         this.mcpServer = mcpServer;
         this.logger = logger;
-        this.setupServerRequestHandlers();
-    }
-
-    private setupServerRequestHandlers() {
-        // Handle listing all available tools
-        this.mcpServer.setRequestHandler(ListToolsRequestSchema, async () => {
-            const tools = Object.entries(marvelTools).map(([name, tool]) => ({
-                name,
-                description: tool.description,
-                inputSchema: zodToJsonSchema(tool.schema),
-            }));
-
-            this.logger.info(`🧰 Listing ${tools.length} tools`);
-            return {
-                jsonrpc: JSON_RPC,
-                tools
-            };
-        });
-
-        // Handle tool execution requests
-        this.mcpServer.setRequestHandler(CallToolRequestSchema, async (request) => {
-            const name = request.params.name;
-            const args = request.params.arguments;
-
-            this.logger.info(`🔧 Handling tool call: ${name}`);
-
-            if (!(name in marvelTools)) {
-                this.logger.error(`❓ Tool ${name} not found`);
-                throw new Error(`Tool not found: ${name}`);
-            }
-
-            const tool = marvelTools[name as ToolName];
-            try {
-                const result = await tool.handler(args);
-                this.logger.info(`🚀 Tool ${name} executed successfully`);
-                return {
-                    jsonrpc: JSON_RPC,
-                    content: [{ type: 'text', text: JSON.stringify(result) }],
-                };
-            } catch (error) {
-                if (error instanceof Error) {
-                    this.logger.error(`💥 Error processing ${name}: ${error.message}`);
-                    throw new Error(`Error processing ${name}: ${error.message}`);
-                }
-                throw error;
-            }
-        });
     }
 
     async handleGetRequest(req: Request, res: Response) {
@@ -93,6 +46,8 @@ export class StreamableHTTPServer {
                         // Store the transport by session ID
                         this.transports[sessionId] = transport;
                         this.logger.info(`🆕 New session initialized: ${sessionId}`);
+                        
+                        // Session initialized - notifications will be handled by main server
                     }
                 });
 
@@ -158,6 +113,7 @@ export class StreamableHTTPServer {
         }
     }
 
+
     async close() {
         this.logger.info('🛑 Shutting down server...');
         // Close all active transports
@@ -176,7 +132,11 @@ export class StreamableHTTPServer {
     private async sendMessages(transport: StreamableHTTPServerTransport) {
         const message: LoggingMessageNotification = {
             method: 'notifications/message',
-            params: { level: 'info', data: 'SSE Connection established' },
+            params: { 
+                level: 'info', 
+                logger: 'marvel-mcp-http',
+                data: { message: 'SSE Connection established' }
+            },
         };
         this.logger.info('📬 Sending SSE connection established notification.');
         this.sendNotification(transport, message);
