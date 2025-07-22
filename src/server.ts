@@ -22,7 +22,7 @@ app.use(express.json());
 const mcpServer = new Server(
     {
         name: 'marvel-mcp',
-        version: '1.7.1',
+        version: '1.8.1',
         description: 'An MCP Server to retrieve Marvel character information.',
     },
     {
