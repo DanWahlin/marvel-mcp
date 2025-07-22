@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/danwahlin/marvel-mcp/compare/1.7.0...1.8.0) (2025-07-22)
+
+
+### Features
+
+* Add logging capabilities ([6192b9e](https://github.com/danwahlin/marvel-mcp/commit/6192b9e4e74321995cba12d90208c53d4ddba82d))
+
 # [1.7.0](https://github.com/danwahlin/marvel-mcp/compare/1.6.4...1.7.0) (2025-04-28)
 
 
