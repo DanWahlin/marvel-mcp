@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/danwahlin/marvel-mcp/compare/1.8.0...1.8.1) (2025-07-22)
+
+
+### Bug Fixes
+
+* improve MCP logging implementation ([9856449](https://github.com/danwahlin/marvel-mcp/commit/9856449d81b7ce3d99c3dea9a5679821efa3d435))
+
 # [1.8.0](https://github.com/danwahlin/marvel-mcp/compare/1.7.0...1.8.0) (2025-07-22)
 
 
