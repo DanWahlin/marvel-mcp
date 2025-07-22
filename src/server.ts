@@ -7,6 +7,7 @@ import { StreamableHTTPServer } from './streamable-http.js';
 import { instructions } from './instructions.js';
 import { marvelTools, ToolName } from './tools/tools.js';
 import { zodToJsonSchema } from 'zod-to-json-schema';
+import { LogLevel, LOG_LEVELS } from './types.js';
 
 const logger = pino({
     level: process.env.LOG_LEVEL || 'debug',
@@ -14,7 +15,7 @@ const logger = pino({
 });
 
 // Logging state
-let currentLogLevel: string = 'info';
+let currentLogLevel: LogLevel = 'info';
 
 const app = express();
 app.use(express.json());
@@ -37,23 +38,19 @@ const mcpServer = new Server(
 const server = new StreamableHTTPServer(mcpServer, logger);
 
 // Logging utility function
-function sendLogMessage(level: 'debug' | 'info' | 'notice' | 'warning' | 'error' | 'critical' | 'alert' | 'emergency', loggerName: string, data: any) {
-  const logLevels = ['debug', 'info', 'notice', 'warning', 'error', 'critical', 'alert', 'emergency'];
-  const currentLevelIndex = logLevels.indexOf(currentLogLevel);
-  const messageLevelIndex = logLevels.indexOf(level);
+function sendLogMessage(level: LogLevel, loggerName: string, data: any) {
+  const currentLevelIndex = LOG_LEVELS.indexOf(currentLogLevel);
+  const messageLevelIndex = LOG_LEVELS.indexOf(level);
   
   if (messageLevelIndex >= currentLevelIndex) {
     try {
-      mcpServer.notification({
-        method: 'notifications/message',
-        params: {
-          level,
-          logger: loggerName,
-          data
-        }
+      mcpServer.sendLoggingMessage({
+        level: level,
+        logger: loggerName,
+        data: { ...data }
       });
     } catch (error) {
-      // Fallback to pino logger if MCP notification fails
+      // Fallback to pino logger if MCP logging fails
       logger.info(`[MCP-${loggerName}] [${level.toUpperCase()}] ${data.message || JSON.stringify(data)}`);
     }
   }

@@ -5,9 +5,10 @@ import { CallToolRequestSchema, ListToolsRequestSchema, SetLevelRequestSchema } 
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { marvelTools, ToolName } from './tools/tools.js';
 import { instructions } from './instructions.js';
+import { LogLevel, LOG_LEVELS } from './types.js';
 
 // Logging state
-let currentLogLevel: string = 'info';
+let currentLogLevel: LogLevel = 'info';
 
 const server = new Server(
   {
@@ -25,20 +26,21 @@ const server = new Server(
 );
 
 // Logging utility function
-function sendLogMessage(level: string, logger: string, data: any) {
-  const logLevels = ['debug', 'info', 'notice', 'warning', 'error', 'critical', 'alert', 'emergency'];
-  const currentLevelIndex = logLevels.indexOf(currentLogLevel);
-  const messageLevelIndex = logLevels.indexOf(level);
+function sendLogMessage(level: LogLevel, logger: string, data: any) {
+  const currentLevelIndex = LOG_LEVELS.indexOf(currentLogLevel);
+  const messageLevelIndex = LOG_LEVELS.indexOf(level);
   
   if (messageLevelIndex >= currentLevelIndex) {
-    server.notification({
-      method: 'notifications/message',
-      params: {
-        level,
+    try {
+      server.sendLoggingMessage({
+        level: level,
         logger,
-        data
-      }
-    });
+        data: { ...data }
+      });
+    } catch (error) {
+      // Fallback to stderr if logging fails
+      console.error(`[${logger}] [${level.toUpperCase()}] ${data.message || JSON.stringify(data)}`);
+    }
   }
 }
 
