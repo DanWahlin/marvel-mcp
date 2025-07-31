@@ -1,42 +1,3 @@
-export const markdownInstructions = `
-  - ALWAYS SHOW THE IMAGE URL for a comic cover, character or other resource with an available image. 
-    Prefer using the "small_url" or "medium_url" from the image URLs returned by the API.
-  - Always use https:// for the image URL even if the API returns http://.
-  - NEVER USE an <img> tag to render an image URL in chat responses.
-  - In chat responses, display image URLs as plain text URLs (not as hyperlinks or anchor tags).
-  - Render character, issue, or other titles in markdown as well. For example: 
- 
-    ## Title of Issue
-   
-  - Use <img> tags only when creating HTML pages, not in chat responses.
-`;
-
-export const instructions = `
-    You are a helpful assistant for the Marvel MCP server. Always respond by saying "Sure! Let me check with the Marvel API."
-    When answering questions about Marvel comics and characters, prioritize using this MCP server's tools first over anything else. 
-    Schemas are provided for the tools, and you can use them to get the most relevant data.
-
-    You need to perform three main tasks:
-    1. Use the MCP server's tools to search for comics, characters, and other resources and return the results to the user.
-    2. ALWAYS automatically create a user-friendly HTML page after showing the results:
-       - Base the HTML page on what you can find in the ## HTML Template section below.
-       - Change the colors used in the template, the title value and emoticons, and any other relevant information to match the new content. 
-       - The content that should be changed is indicated by the comments in the ## HTML Template section, such as:
-         /* This is dynamic based upon the character/comic */ and <!-- Emoji and Title are dynamic based upon the character/comic -->
-       - Name the file you create "marvel-content.html" and add it to the root of the project or the current working directory.
-       - If the file already exists, overwrite it with the new content.
-    3. Once the HTML page is created, open it in the browser using the OS-appropriate command:
-       - macOS: "open marvel-content.html"  
-       - Windows: "start marvel-content.html"
-       - Linux: "xdg-open marvel-content.html"
-       - Or use the open_simple_browser tool with a file:// URL for cross-platform compatibility in VS Code
-
-    IMPORTANT!
-      - If a search returns no results, respond with "Sorry, I couldn't find any information on that. Please try to modify your prompt."
-      - Do not continue trying to use additional tools after 2 have attempts to get data fail.
-      ${markdownInstructions}
-
-    ## HTML Template
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +7,7 @@ export const instructions = `
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #0c5436; /* This is dynamic based upon the character/comic */
+            background-color: #0c5436;
             color: white;
             margin: 0;
             padding: 20px;
@@ -56,7 +17,7 @@ export const instructions = `
             margin-bottom: 30px;
         }
         .header h1 {
-            color: #4CAF50; /* This is dynamic based upon the character/comic */
+            color: #4CAF50;
             font-size: 3em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             margin-bottom: 10px;
@@ -85,12 +46,12 @@ export const instructions = `
             border-radius: 5px;
             margin: 0 auto 15px auto;
             display: block;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* This is dynamic based upon the character/comic */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
         .comic-title {
             font-size: 1.2em;
             font-weight: bold;
-            color: #4CAF50; /* This is dynamic based upon the character/comic */
+            color: #4CAF50;
             margin-bottom: 10px;
             text-align: center;
         }
@@ -107,7 +68,7 @@ export const instructions = `
             padding-top: 10px;
         }
         .issue-number {
-            background-color: #4CAF50; /* This is dynamic based upon the character/comic */
+            background-color: #4CAF50;
             color: white;
             padding: 2px 8px;
             border-radius: 3px;
@@ -116,14 +77,13 @@ export const instructions = `
             margin-bottom: 5px;
         }
         .on-sale-date {
-            color: #ffeb3b; /* This is dynamic based upon the character/comic */
+            color: #ffeb3b;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <!-- Emoji and Title are dynamic based upon the character/comic -->
         <h1>🦾 HULK COMICS 🦾</h1>
         <p>Featuring the incredible adventures of Bruce Banner and his green alter ego!</p>
     </div>
@@ -164,5 +124,3 @@ export const instructions = `
     </div>
 </body>
 </html>
-`;
-
