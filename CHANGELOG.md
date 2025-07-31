@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/danwahlin/marvel-mcp/compare/1.8.2...1.8.3) (2025-07-31)
+
+
+### Bug Fixes
+
+* Modify instructions to generate an HTML page and try to open it ([2d051f5](https://github.com/danwahlin/marvel-mcp/commit/2d051f5e9cc0526d50abbdd6e566f66850b02341))
+
 ## [1.8.2](https://github.com/danwahlin/marvel-mcp/compare/1.8.1...1.8.2) (2025-07-22)
 
 
