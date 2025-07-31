@@ -1,6 +1,6 @@
 {
   "name": "@codewithdan/marvel-mcp",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "Marvel APIs MCP Server demo",
   "license": "MIT",
   "publishConfig": {

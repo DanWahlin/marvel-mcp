@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/danwahlin/marvel-mcp/compare/1.8.1...1.8.2) (2025-07-22)
+
+
+### Bug Fixes
+
+* More logging changes ([eea6e84](https://github.com/danwahlin/marvel-mcp/commit/eea6e84c9451343895754d51e3079254b06d9a2c))
+
 ## [1.8.1](https://github.com/danwahlin/marvel-mcp/compare/1.8.0...1.8.1) (2025-07-22)
 
 
