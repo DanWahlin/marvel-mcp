@@ -2,12 +2,12 @@
 	"servers": {
 		"marvel-mcp": {
 			"type": "stdio",
-			// "command": "npx",
-			"command": "node",
+			"command": "npx",
+			// "command": "node",
 			"args": [
-				// "-y",
-				// "@codewithdan/marvel-mcp"
-				"/Users/danwahlin/Desktop/demos/marvel-mcp/dist/index.js"
+				"-y",
+				"@codewithdan/marvel-mcp"
+				// "/Users/danwahlin/Desktop/demos/marvel-mcp/dist/index.js"
 			],
 			"env": {
               "MARVEL_PUBLIC_KEY": "${input:marvel-public-api-key}",

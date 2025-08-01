@@ -43,7 +43,7 @@
   "scripts": {
     "start": "tsx ./src/index.ts",
     "start:http": "tsx ./src/server.ts",
-    "build": "npx tsc",
+    "build": "npx tsc && chmod +x dist/index.js",
     "watch": "npx tsc --watch",
     "dev": "tsc && concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
     "dev:http": "npx tsc && concurrently \"npx tsc --watch\" \"nodemon dist/server.js\"",
