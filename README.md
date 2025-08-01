@@ -1,5 +1,3 @@
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/danwahlin-marvel-mcp-badge.png)](https://mseep.ai/app/danwahlin-marvel-mcp)
-
 <div align="center">
 
 <img src="./images/captain-america.jpg" alt="" align="center" height="96" />
@@ -255,3 +253,5 @@ Add the following to your user settings file or add it to the `.vscode/mcp.json`
     > **Note**: If you see "Sorry, the response was filtered by the Responsible AI Service.", try running it again or rephrasing the prompt.
 
 5. **Bonus**: When you ask about characters or comics, the server will automatically create a `marvel-content.html` file in your project root with a beautifully styled page containing all the character/comic information and images, then open it in your browser!
+
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/danwahlin-marvel-mcp-badge.png)](https://mseep.ai/app/danwahlin-marvel-mcp)
