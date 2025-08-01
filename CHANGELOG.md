@@ -1,3 +1,10 @@
+## [1.8.5](https://github.com/danwahlin/marvel-mcp/compare/1.8.4...1.8.5) (2025-08-01)
+
+
+### Bug Fixes
+
+* Add chmod for index.js dist ([06aac7b](https://github.com/danwahlin/marvel-mcp/commit/06aac7bd5fa1534852030e5a2b801d9308923dd7))
+
 ## [1.8.4](https://github.com/danwahlin/marvel-mcp/compare/1.8.3...1.8.4) (2025-08-01)
 
 
