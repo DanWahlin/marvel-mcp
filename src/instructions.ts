@@ -3,7 +3,8 @@ export const markdownInstructions = `
     Prefer using the "small_url" or "medium_url" from the image URLs returned by the API.
   - Always use https:// for the image URL even if the API returns http://.
   - NEVER USE an <img> tag to render an image URL in chat responses.
-  - In chat responses, display image URLs as plain text URLs (not as hyperlinks or anchor tags).
+  - NEVER USE markdown image syntax like ![alt](url) in chat responses.
+  - In chat responses, display image URLs as plain HTTPS text URLs only (not as hyperlinks, anchor tags, or markdown).
   - Render character, issue, or other titles in markdown as well. For example: 
  
     ## Title of Issue

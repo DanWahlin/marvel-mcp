@@ -23,6 +23,10 @@ MCP Server for the [Marvel Developer API](https://developer.marvel.com/documenta
 - **List Marvel Characters**: Supports filters like `nameStartsWith`, `limit`, `comics`, `series`, etc.
 - **Fetch a Marvel Character by ID**: Get detailed info on any character using their `characterId`.
 - **Fetch Comics for a Character**: Get a list of comics featuring a specific character, with various filters like `format`, `dateRange`, etc.
+- **Rich Content Display**: When you ask about characters or comics, the server will:
+  - Display detailed information about characters and comics including images, names, descriptions, and more.
+  - Create an HTML page (`marvel-content.html`) with all the content in it.
+  - Attempt to open the newly created HTML page in your default browser for an enhanced viewing experience.
 - **Tool-based MCP integration**: Register this server with Model Context Protocol (MCP) tools (VS Code, Claude, etc.).
 - **Environment Configuration**: Use `.env` file to manage environment variables like `MARVEL_PUBLIC_KEY`, `MARVEL_PRIVATE_KEY` and `MARVEL_API_BASE`.
 
@@ -247,3 +251,5 @@ Add the following to your user settings file or add it to the `.vscode/mcp.json`
     ```
 
     > **Note**: If you see "Sorry, the response was filtered by the Responsible AI Service.", try running it again or rephrasing the prompt.
+
+5. **Bonus**: When you ask about characters or comics, the server will automatically create a `marvel-content.html` file in your project root with a beautifully styled page containing all the character/comic information and images, then open it in your browser!
