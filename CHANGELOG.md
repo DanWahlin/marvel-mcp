@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/danwahlin/marvel-mcp/compare/1.8.3...1.8.4) (2025-08-01)
+
+
+### Bug Fixes
+
+* Update instructions and enhance readme ([b54c21b](https://github.com/danwahlin/marvel-mcp/commit/b54c21bcddf13a679bb3c677965b8f573ea57922))
+
 ## [1.8.3](https://github.com/danwahlin/marvel-mcp/compare/1.8.2...1.8.3) (2025-07-31)
 
 
