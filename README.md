@@ -4,6 +4,8 @@
 
 # Marvel MCP Server
 
+**NOTE**: Marvel recently retired their API so it is no longer available unfortunately. I'm leaving this post up for historical purposes since the approach is still relevant for MCP servers. If you'd like to see a similar example, check out my [DC Comics MCP server](https://github.com/DanWahlin/dc-comics-mcp).
+
 [![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/danwahlin/marvel-mcp?hide_repo_select=true&ref=main&quickstart=true)
 ![Node version](https://img.shields.io/badge/Node.js->=20-3c873a?style=flat-square)
 [![smithery badge](https://smithery.ai/badge/@DanWahlin/marvel-mcp)](https://smithery.ai/server/@DanWahlin/marvel-mcp)
