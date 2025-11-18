@@ -13,7 +13,7 @@
 
 </div>
 
-**NOTE**: Marvel recently retired their API so it is no longer available unfortunately. I'm leaving this post up for historical purposes since the approach is still relevant for MCP servers. If you'd like to see a similar example, check out my [DC Comics MCP server](https://github.com/DanWahlin/dc-comics-mcp).
+**NOTE**: Marvel recently retired their API so it is no longer available unfortunately. I'm leaving this repo up for historical purposes since the approach is still relevant for MCP servers. If you'd like to see a similar example, check out my [DC Comics MCP server](https://github.com/DanWahlin/dc-comics-mcp).
 
 MCP Server for the [Marvel Developer API](https://developer.marvel.com/documentation/getting_started), enabling interaction with characters and comics data. *The main goal of the project is to show how an MCP server can be used to interact with APIs.*
 
